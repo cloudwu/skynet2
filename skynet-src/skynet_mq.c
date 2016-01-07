@@ -55,7 +55,6 @@ perpare_space(struct skynet_mq *mq, struct skynet_mq *expand) {
 		tail -= mq->cap;
 	}
 	if (tail != mq->head) {
-		expand->tail = mq->tail;
 		return 0;
 	}
 	expand->cap = mq->cap * 2;
@@ -153,7 +152,7 @@ skynet_mq_popmt(struct skynet_mq *mq, struct skynet_message_package *pack) {
 		// but we can call skynet_mq_pushmt in another thread
 		*pack = mq->q[mq->head];
 		pop_message(mq);
-	rwlock_rlock(&mq->lock);
+	rwlock_runlock(&mq->lock);
 	return 1;
 }
 
