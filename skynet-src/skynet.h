@@ -15,6 +15,7 @@ struct skynet_message * skynet_message_init(void *buffer, size_t sz, void (*user
 void skynet_message_grab(struct skynet_message *msg);
 void skynet_message_release(struct skynet_message *msg);
 void * skynet_message_buffer(struct skynet_message *msg, size_t *sz);
+void skynet_message_shrink(struct skynet_message *msg, size_t sz);
 
 // send message api
 void skynet_post(struct skynet_service *self, address_t dest, struct skynet_message *msg);

@@ -33,6 +33,7 @@ macosx linux : SKYNET_LIBS += -ldl
 linux freebsd : SKYNET_LIBS += -lrt
 mingw : LUA_LIBS += -L/usr/local/bin -llua53
 mingw : SHARED = --shared
+mingw : SKYNET_LIBS += -lws2_32
 
 linux macosx freebsd mingw:
 	$(MAKE) all PLAT=$@ SKYNET_LIBS="$(SKYNET_LIBS)" SHARED="$(SHARED)" LUA_LIBS="$(LUA_LIBS)"

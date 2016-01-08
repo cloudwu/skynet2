@@ -16,7 +16,10 @@ $(LUA_STATICLIB) :
 
 LUA_CLIB = 
 
-SKYNET_SRC = skynet_main.c skynet_message.c skynet_malloc.c skynet_mq.c skynet_service.c skynet_handle.c skynet_api.c
+SKYNET_SRC =\
+ skynet_message.c skynet_malloc.c skynet_mq.c skynet_service.c skynet_handle.c skynet_api.c \
+# skynet_socket.c\
+ skynet_main.c
 
 all : \
   $(SKYNET_BUILD_PATH)/skynet.so

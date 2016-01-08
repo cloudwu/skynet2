@@ -75,3 +75,9 @@ skynet_message_buffer(struct skynet_message *msg, size_t *sz) {
 	assert(msg->type == MESSAGE_SKYNET);
 	return msg+1;
 }
+
+void
+skynet_message_shrink(struct skynet_message *msg, size_t sz) {
+	assert(msg->sz >= sz);
+	msg->sz = sz;
+}
